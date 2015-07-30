@@ -1,0 +1,30 @@
+Array.prototype.concatUnique = function(toConcat,compare)
+{
+  var result = [];
+  result = result.concat(this);
+  for(var i = 0; i<toConcat.length; i++)
+    {
+      var found = false;
+      for(var j = 0; j<result.length && !found; j++)
+        {
+          if(compare(toConcat[i],result[j]))
+            found = true;
+        }
+      if(!found)
+        result.push(toConcat[i]);
+    }
+  return result;
+};
+function unite() {
+  console.log(arguments);
+  if(arguments.length < 1)
+    return;
+  var result = arguments[0];
+  for(var i  = 1; i< arguments.length;i++)
+      {
+        result = result.concatUnique(arguments[i], function(a,b){return a===b;});
+      }
+  return result;
+}
+
+unite([1, 2, 3], [5, 2, 1, 4], [2, 1]);
