@@ -1,0 +1,8 @@
+function palindrome(str) {
+  // Good luck!
+  var re = /[,\. ]/g;
+  var str2 = str.replace(re,'').toLowerCase();
+  return str2.split('').reverse().join('') === str2;
+}
+
+palindrome("A man, a plan, a canal. Panama");
