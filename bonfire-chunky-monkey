@@ -1,0 +1,17 @@
+function chunk(arr, size) {
+  // Break it up.
+  var outerResult = [];
+  while(arr.length>0)
+    {
+      var innerResult = [];
+      for(var i = 0; i< size && arr.length>0; i++)
+        {
+          innerResult.push(arr.shift());
+        }
+      if(innerResult.length>0)
+        outerResult.push(innerResult);
+    }
+  return outerResult;
+}
+
+chunk(['a', 'b', 'c', 'd'], 2);
