@@ -1,0 +1,21 @@
+function replace(str, before, after) {
+  console.log(after.split(''));
+  console.log(after.split('').join(''));
+  //create an array from the "after" string
+  after = after.split('');
+  console.log(after);
+  //check if the first letter from "before" is uppercase
+  //and set the same case to the "after"'s first letter
+  if(before[0].toUpperCase() === before[0])
+    after[0] = after[0].toUpperCase();
+  else
+    after[0] = after[0].toLowerCase();
+  console.log(after);
+  //join the array to create a string again
+  after = after.join('');
+  console.log(after);
+  //replace the string
+ return str.replace(before,after);
+}
+
+replace("He is Sleeping on the couch", "Sleeping", "sitting");
