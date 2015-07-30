@@ -1,0 +1,80 @@
+Array.prototype.concatUnique = function(toConcat,compare)
+{
+  var result = [];
+  result = result.concat(this);
+  for(var i = 0; i<toConcat.length; i++)
+    {
+      var found = false;
+      for(var j = 0; j<result.length && !found; j++)
+        {
+          if(compare(toConcat[i],result[j]))
+            found = true;
+        }
+      if(!found)
+        result.push(toConcat[i]);
+    }
+  return result;
+};
+function compareItem(item1,item2)
+{
+  return item1[1] == item2[1];
+}
+function inventory(curInv, newInv) {
+    // All inventory must be accounted for or you're fired!
+  var result = [];
+  newInv.forEach(
+    function(item)
+    {
+  //check which items are in newInv and curInv
+      var foundItem = curInv.filter(function(curInvItem){return item[1]===curInvItem[1];}).
+      map(function(curInvItem)
+         { return [item[0]+curInvItem[0],item[1]];});
+      if(foundItem.length > 0)
+        result = result.concatUnique(foundItem,compareItem);
+      else //check which items are only in newInv
+        result = result.concatUnique([item],compareItem);
+    }
+  );
+  //check which items are only in curInv
+    
+  curInv.forEach(
+    function(item)
+    {
+      var foundItem = newInv.filter(function(curInvItem){return item[1]===curInvItem[1];});
+  //check which items are in newInv and curInv
+      if(foundItem.length === 0)
+        result = result.concatUnique([item],compareItem);
+    }
+  );
+  result.sort(
+    function (a, b) {
+    if (a[1] > b[1]) {
+      return 1;
+    }
+    if (a[1] < b[1]) {
+      return -1;
+    }
+  // a must be equal to b
+  return 0;
+    }
+  );
+  
+  return result;
+}
+
+// Example inventory lists
+var curInv = [
+    [21, 'Bowling Ball'],
+    [2, 'Dirty Sock'],
+    [1, 'Hair Pin'],
+    [5, 'Microphone']
+];
+
+var newInv = [
+    [2, 'Hair Pin'],
+    [3, 'Half-Eaten Apple'],
+    [67, 'Bowling Ball'],
+    [7, 'Toothpaste']
+];
+
+inventory(curInv, newInv);
