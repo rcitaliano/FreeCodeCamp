@@ -1,0 +1,11 @@
+function titleCase(str) {
+  return str.split(' ')
+  .map(function(item){
+    var itemvec = item.toLowerCase().split('');
+    itemvec[0] = itemvec[0].toUpperCase();
+    return itemvec.join('');
+  })
+  .join(' ');
+}
+
+titleCase("I'm a little tea pot");
