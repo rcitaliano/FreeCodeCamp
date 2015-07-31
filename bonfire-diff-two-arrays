@@ -1,0 +1,15 @@
+function diff(arr1, arr2) {
+  var newArr = [];
+  // Same, same; but different.
+  arr1.forEach(function(item){
+    if(arr2.indexOf(item)===-1)
+      newArr.push(item);
+  });
+  arr2.forEach(function(item){
+    if(arr1.indexOf(item)===-1)
+      newArr.push(item);
+  });
+  return newArr;
+}
+
+diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
