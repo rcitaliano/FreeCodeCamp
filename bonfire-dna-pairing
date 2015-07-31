@@ -1,0 +1,17 @@
+function getPair(str)
+{
+  switch(str)
+    {
+      case "T":return "A";
+      case "A":return "T";
+      case "G":return "C";
+      case "C":return "G";
+    }
+}
+function pair(str) {
+  return str.split('').map(function(item){
+    return [item,getPair(item)];
+  });
+}
+
+pair("GCG");
