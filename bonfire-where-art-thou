@@ -1,0 +1,20 @@
+function where(collection, source) {
+  var arr = [];
+  //get the list of keys in the source
+  var sourceKeys = Object.keys(source);
+  //filter the first colletion
+  return collection.filter(function(item){
+    //check al the item's keys
+    return Object.keys(item).filter(function(itemKey){
+      //check if the item key is also inside the source's Keys
+      return sourceKeys.filter(function(sourceKey){
+        //the key must be the same
+        return itemKey === sourceKey 
+                //the value also must be the same
+                && item[itemKey] === source[sourceKey];
+      }).length>0;
+    }).length === sourceKeys.length;
+  });
+}
+
+where([{ first: 'Romeo', last: 'Montague' }, { first: 'Mercutio', last: null }, { first: 'Tybalt', last: 'Capulet' }], { last: 'Capulet' });
