@@ -1,0 +1,21 @@
+function fibonacci(num)
+{
+  var prev = 0;
+  var currentNum = 1;
+  var result=[1,1];
+  while(result[result.length-1]< num)
+    {
+      result.push(result[result.length-1]+result[result.length-2]);
+    }
+  return result;
+}
+function sumFibs(num) {
+  return fibonacci(num).reduce(function(prev,curr,index,array){
+    if(curr%2!==0 && curr<=num)
+      return prev+curr;
+    else
+      return prev;
+  });
+}
+
+sumFibs(1000);
