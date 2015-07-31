@@ -1,0 +1,12 @@
+function sumAll(arr) {
+  var first = Math.min(arr[0],arr[1]);
+  console.log(first);
+  var last= Math.max(arr[0],arr[1]);
+  console.log(last);
+  var numberOfElements = last-first+1;
+  console.log(numberOfElements);
+  console.log((first+last)*numberOfElements/2);
+  return (first+last)*numberOfElements/2;
+}
+
+sumAll([1, 4]);
