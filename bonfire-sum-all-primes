@@ -1,0 +1,28 @@
+
+function generatePrimes(num)
+{
+  var number = [];
+  var currentNum = 2;
+  while(currentNum <= num)
+    {
+      var isPrime = true;
+      number.forEach(function(item){
+        if(currentNum % item === 0)
+          isPrime = false;
+      });
+      if(isPrime)
+        number.push(currentNum);
+      currentNum++;
+    }
+  return number;
+}
+function sumPrimes(num) {
+  return generatePrimes(num).reduce(function(prev,curr,index,arr){
+    if(curr<=num)
+      return prev+curr;
+    else
+      return curr;
+  });
+}
+
+sumPrimes(100);
