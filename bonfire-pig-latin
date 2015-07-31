@@ -1,0 +1,14 @@
+function translate(str) {
+ var vowels = "aeiou";
+ var consonants = "";
+ for(var i = 0;i<str.length && vowels.indexOf(str[i].toLowerCase()) ===-1;i++)
+   {
+     consonants+=str[i];
+   }
+  if(consonants.length === 0)
+    return str+"way";
+  else
+    return str.substring(consonants.length)+consonants+"ay";
+}
+
+translate("glove");
