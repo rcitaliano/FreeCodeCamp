@@ -1,0 +1,23 @@
+function destroyer(arr) {
+  // Remove all the values
+  var args = [];
+  //load all the arguments into an array
+  for(var i = 0;i<arguments.length;i++)
+    args.push(arguments[i]);
+  //get the first element of the arguments
+  //the shift will remove the first element from args and return it
+  //so args now has 1 fewer element, but we are working on the shifted one
+  return args.shift()
+  //iterate over the shifted argument, that is the array
+  .filter(function(item){
+    //check if the current item is contained in the rest of the arguments
+    return args.filter(function(item2){
+      return item === item2;
+      
+    })
+    //we wnat the length to be 0 because we don't want the item that is also inside the rest of the arguments
+    .length === 0;
+  });
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
