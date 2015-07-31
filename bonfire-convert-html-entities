@@ -1,0 +1,21 @@
+function convertChar(char)
+{
+  switch(char)
+    {
+      case "&": return "&amp;";
+      case "<": return "&lt;";  
+      case ">": return "&gt;";
+      case "\"": return "&quot;";
+      case "'": return "&apos;";
+      default: return char;
+    }
+}
+function convert(str) {
+  // &colon;&rpar;
+  return str.split('').map(function(item){
+    console.log( convertChar(item));
+    return convertChar(item);
+  }).join('');
+}
+
+convert('Dolce & Gabbana');
