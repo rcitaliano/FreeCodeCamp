@@ -1,0 +1,31 @@
+function logArguments(){
+  for(var i=0;i<arguments.length;i++)
+    {
+      console.log(arguments[i]);
+    }
+}
+function binaryAgent(str) {
+  return str.split(' ')
+  .map(function(char){
+    return String.fromCharCode(
+      char.split('')
+      .map(function(item,index,a){
+        if(item==="1")
+          {
+            return Math.pow(2,char.length-index-1);
+          }
+        else
+          {
+            return 0;
+          }
+          
+      })
+      .reduce(function(p,c,i,a){
+        return p+c;
+      })
+    );
+  })
+  .join('');
+}
+
+binaryAgent('01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111');
