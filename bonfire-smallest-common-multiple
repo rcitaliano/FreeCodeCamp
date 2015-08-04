@@ -1,0 +1,23 @@
+function smallestCommons(arr) {
+  var min = Math.min(arr[0],arr[1]);
+  var max = Math.max(arr[0],arr[1]);
+  var numbers = [];
+  for(var i = min; i<=max;i++)
+    numbers.push(i);
+  return numbers.reduce(function(prev,curr,i,array){
+    console.log(prev+","+curr+","+i);
+    if(prev%curr === 0)
+      return prev;
+    else
+      {
+        for(var j=2;j<=curr;j++)
+          {
+            if((prev*j)%curr===0 )
+              return prev*j;
+          }
+      }
+  });
+}
+
+
+smallestCommons([1,5]);
