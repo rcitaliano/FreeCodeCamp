@@ -1,0 +1,17 @@
+function steamroller(arr) {
+  // I'm a steamroller, baby
+  if(Array.isArray(arr))
+    {
+      var arr2 = [];
+      arr.forEach(function(item){
+        arr2 = arr2.concat(steamroller(item));
+      });
+      return arr2;
+    }
+  else
+    {
+      return arr;
+    }
+}
+
+steamroller([1, [2], [3, [[4]]]]);
