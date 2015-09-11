@@ -1,0 +1,8 @@
+function every(collection, pre) {
+  // Does everyone have one of these?
+  return collection.filter(function(item){
+    return item.hasOwnProperty(pre);
+  }).length === collection.length;
+}
+
+every([{'user': 'Tinky-Winky', 'sex': 'male'}, {'user': 'Dipsy', 'sex': 'male'}, {'user': 'Laa-Laa', 'sex': 'female'}, {'user': 'Po', 'sex': 'female'}], 'sex');
